@@ -75,6 +75,7 @@ workflows:
           filters: *filter-only-semantic-pr
 
   release:
+    context: open-rpc-deployer
     jobs:
       - test:
           filters: *filter-only-master
