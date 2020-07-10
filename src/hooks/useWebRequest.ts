@@ -69,13 +69,13 @@ const useWebRequest = () => {
         responseTime.setMilliseconds((responseTime.getMilliseconds() + request.time));
         //if batched
         if (responseBodyObj.length) {
-          for (var i = 0; i < responseBodyObj.length; i++) {
+          for (var j = 0; j < responseBodyObj.length; j++) {
             responseObjs.push(
               {
                 type: "response",
-                method: requestBodyObj[i].method,
+                method: requestBodyObj[j].method,
                 timestamp: responseTime,
-                payload: responseBodyObj[i],
+                payload: responseBodyObj[j],
                 batchId: batchIdCount,
               }
             );
