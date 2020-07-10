@@ -80,6 +80,11 @@ const CardListItem: React.FC<IProps> = (props) => {
           subheader={props.log.timestamp.toISOString()}
         />
         <CardContent className={classes.cardContent}>
+          { props.log.batchId ?
+            <Typography>Batch: {props.log.batchId}</Typography>
+            :
+            null
+          }
           <ExpansionPanel
             TransitionProps={{ mountOnEnter: true, unmountOnExit: true }}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>

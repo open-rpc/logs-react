@@ -12,6 +12,7 @@ export interface IJSONRPCLog {
   method: string;
   timestamp: Date;
   payload: any;
+  batchId?: number;
 }
 
 interface IProps {
