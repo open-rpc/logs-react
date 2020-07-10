@@ -5,7 +5,7 @@ import {
   ExpansionPanelDetails, ExpansionPanelSummary, Tooltip, IconButton,
   Snackbar,
 } from "@material-ui/core";
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import MonacoEditor from "@etclabscore/react-monaco-editor";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AssignmentIcon from "@material-ui/icons/Assignment";
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     cardContent: {
       padding: "0 8px 0 8px",
-    }
+    },
   }),
 );
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IJSONRPCLog } from "../components/logsReact/logsReact";
 
-var batchIdCount = 0;
+let batchIdCount = 0;
 
 // checks if the passed string is a JSON-RPC request or response
 const isJsonRpc = (str: string) => {
@@ -16,8 +16,7 @@ const isJsonRpc = (str: string) => {
           }
         }
         return true;
-      }
-      else if ("jsonrpc" in json) {
+      } else if ("jsonrpc" in json) {
         return true;
       } else {
         return false;
@@ -39,17 +38,17 @@ const useWebRequest = () => {
         const requestBodyObj = JSON.parse(requestBody);
         const requestObjs: IJSONRPCLog[] = [];
         const responseObjs: IJSONRPCLog[] = [];
-        //if batched
+        // if batched
         if (requestBodyObj.length) {
-          for (var i = 0; i < requestBodyObj.length; i++) {
+          for (const [reqObj] of requestBodyObj) {
             requestObjs.push(
               {
                 type: "request",
-                method: requestBodyObj[i].method,
+                method: reqObj.method,
                 timestamp: new Date(request.startedDateTime),
-                payload: requestBodyObj[i],
+                payload: reqObj,
                 batchId: batchIdCount,
-              }
+              },
             );
           }
           batchIdCount += 1;
@@ -60,24 +59,24 @@ const useWebRequest = () => {
               method: requestBodyObj.method,
               timestamp: new Date(request.startedDateTime),
               payload: requestBodyObj,
-            }
+            },
           );
         }
 
         const responseTime = new Date(request.startedDateTime);
         const responseBodyObj = JSON.parse(responseBody);
         responseTime.setMilliseconds((responseTime.getMilliseconds() + request.time));
-        //if batched
+        // if batched
         if (responseBodyObj.length) {
-          for (var j = 0; j < responseBodyObj.length; j++) {
+          for (const [j, resObj] of responseBodyObj) {
             responseObjs.push(
               {
                 type: "response",
                 method: requestBodyObj[j].method,
                 timestamp: responseTime,
-                payload: responseBodyObj[j],
+                payload: resObj,
                 batchId: batchIdCount,
-              }
+              },
             );
           }
           batchIdCount += 1;
@@ -88,7 +87,7 @@ const useWebRequest = () => {
               method: requestBodyObj.method,
               timestamp: responseTime,
               payload: responseBodyObj,
-            }
+            },
           );
 
         }

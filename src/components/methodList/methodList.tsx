@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from "@material-ui/core/styles";
 import { IJSONRPCLog } from "../logsReact/logsReact";
 import {
   Modal,
@@ -17,10 +17,10 @@ import {
   ListItemText,
   ListItemIcon,
 } from "@material-ui/core";
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
 interface IProps {
   logs: IJSONRPCLog[];
@@ -134,12 +134,12 @@ const MethodList: React.FC<IProps> = (props) => {
         anchor="left"
         open={props.isDrawerOpen}
         classes={{
-          paper: classes.drawerPaper
+          paper: classes.drawerPaper,
         }}
       >
           <div className={classes.drawerHeader}>
               <IconButton onClick={props.closeDrawer}>
-                {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                {theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
               </IconButton>
           </div>
           <Divider/>

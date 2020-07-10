@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import CardList from "../cardList/cardList";
-import clsx from 'clsx';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import clsx from "clsx";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import MethodList from "../methodList/methodList";
-import { IconButton } from '@material-ui/core';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { IconButton } from "@material-ui/core";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 // add method type so we can attribute cards to different method calls
 export interface IJSONRPCLog {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "15px",
     },
     hide: {
-      display: 'none',
+      display: "none",
     },
     menuButton: {
       paddingLeft: 0,
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
     content: {
       width: "100%",
       height: "auto",
-      transition: theme.transitions.create('margin', {
+      transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     contentShift: {
       width: `calc(100% - ${drawerWidth}px)`,
-      transition: theme.transitions.create('margin', {
+      transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
@@ -76,7 +76,7 @@ const JSONRPCLogger: React.FC<IProps> = (props) => {
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
-  }
+  };
 
   return (
     <div className={classes.logsReact}>
