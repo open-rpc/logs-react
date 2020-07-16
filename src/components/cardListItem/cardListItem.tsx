@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IJSONRPCLog } from "../logsReact/logsReact";
+import * as monaco from "monaco-editor";
 import {
   Typography, Card, Box, CardHeader, CardContent, ExpansionPanel,
   ExpansionPanelDetails, ExpansionPanelSummary, Tooltip, IconButton,
@@ -7,6 +8,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import MonacoEditor from "@etclabscore/react-monaco-editor";
+import { addDiagnostics } from "@etclabscore/monaco-add-json-schema-diagnostics";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import "./cardListItem.css";
@@ -52,7 +54,50 @@ const CardListItem: React.FC<IProps> = (props) => {
   const classes = useStyles();
 
   const handleEditorDidMount = (__: any, editor: any) => {
-    return;
+    if (!editor) {
+      return;
+    }
+    const modelName = "logsReact";
+    const modelUriString = `inmemory://${modelName}-${Math.random()}.json`;
+    const modelUri = monaco.Uri.parse(modelUriString);
+    const model = monaco.editor.createModel(JSON.stringify(props.log.payload, null, 4) || "", "json", modelUri);
+    editor.setModel(model);
+    let schema: any = {
+      type: "object",
+      properties: {
+        jsonrpc: {
+          type: "string",
+          const: "2.0",
+        },
+        id: {
+          oneOf: [
+            {
+              type: "string",
+            },
+            {
+              type: "number",
+            },
+          ],
+        },
+        method: {
+          type: "string",
+        },
+      },
+    };
+    // TODO add openrpcDocumentToJSONRPCSchema
+    schema = {
+      additionalProperties: false,
+      properties: {
+        ...schema.properties,
+        params: {
+          oneOf: [
+            { type: "array" },
+            { type: "object" },
+          ],
+        },
+      },
+    };
+    addDiagnostics(modelUri.toString(), schema, monaco);
   };
 
   const handleCopy = (event, value) => {

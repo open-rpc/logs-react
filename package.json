@@ -14,19 +14,20 @@
     "build": "rescripts build",
     "build:package": "tsc --noEmit false --outDir package --jsx react --declaration true --allowJs false --isolatedModules false --target es5 --module commonjs && mv package/exports.d.ts package/index.d.ts && mv package/exports.js package/index.js && find src/components -mindepth 1 -maxdepth 1 -type d -exec sh -c 'for f in {}/*.css; do cp \"$f\" \"package/components/$(basename {})\"; done' {} \\;",
     "lint": "tslint --fix -p .",
-    "test": "npm run lint && CI=true rescripts test --coverage --passWithNoTests"
+    "test": "npm run lint && rescripts test --coverage --passWithNoTests"
   },
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@rescripts/cli": "0.0.14",
-    "@rescripts/utilities": "0.0.7",
-    "@types/jest": "^24.0.13",
+    "@rescripts/cli": "0.0.13",
+    "@rescripts/utilities": "0.0.6",
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.135",
+    "@types/react": "^16.9.2",
     "@types/react-dom": "^16.8.4",
-    "monaco-editor-webpack-plugin": "^1.9.0",
+    "monaco-editor-webpack-plugin": "^1.7.0",
     "react-scripts": "^3.4.1",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.17.0",
+    "tslint": "^5.18.0",
     "typescript": "^3.7.3"
   },
   "browserslist": {
@@ -42,6 +43,7 @@
     ]
   },
   "dependencies": {
+    "@etclabscore/monaco-add-json-schema-diagnostics": "^1.0.3",
     "@etclabscore/react-monaco-editor": "^1.0.4",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.5.1",
@@ -49,10 +51,10 @@
     "@types/chrome": "0.0.108",
     "copy-to-clipboard": "^3.3.1",
     "moment": "^2.24.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "monaco-editor": "^0.18.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-i18next": "^10.13.1",
-    "react-monaco-editor": "^0.36.0",
     "react-scroll-to-bottom": "^2.0.0",
     "use-dark-mode": "^2.3.1"
   },
