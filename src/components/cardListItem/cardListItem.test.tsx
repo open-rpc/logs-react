@@ -10,7 +10,7 @@ const basicLog: IJSONRPCLog = {
   payload: {},
 };
 
-describe("CardListItem", () => {
+describe.only("CardListItem", () => {
 
   it("renders component", () => {
     const div = document.createElement("div");

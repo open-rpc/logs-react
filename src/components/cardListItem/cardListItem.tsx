@@ -14,7 +14,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import "./cardListItem.css";
 import Alert from "../alert/alert";
 import useDarkMode from "use-dark-mode";
-import copy from "copy-to-clipboard";
+// import copy from "copy-to-clipboard";
 
 interface IProps {
   log: IJSONRPCLog;
@@ -103,7 +103,7 @@ const CardListItem: React.FC<IProps> = (props) => {
   const handleCopy = (event, value) => {
     event.stopPropagation();
     setOpen(true);
-    copy(JSON.stringify(value, null, 4));
+    // copy(JSON.stringify(value, null, 4));
   };
 
   const handleClose = () => {

@@ -41,6 +41,9 @@ const monaco = {
   onDidChangeModelContent() {
 
   },
+  getValue() {
+
+  },
   setModel() {
 
   },

@@ -60,5 +60,15 @@
   },
   "rescripts": [
     "rescript-monaco"
-  ]
+  ],
+  "jest": {
+    "moduleNameMapper": {
+      "^monaco-editor$": "<rootDir>/__mocks__/monaco-editor.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(monaco-editor)/)",
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ]
+  }
 }
