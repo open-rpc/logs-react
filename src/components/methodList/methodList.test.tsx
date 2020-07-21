@@ -63,4 +63,23 @@ describe("methodList", () => {
     />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+
+  it("drawerCLosed", () => {
+    const div = document.createElement("div");
+    const select = () => {
+      return;
+    };
+    const close = () => {
+      return;
+    };
+    ReactDOM.render(<MethodList
+      logs={basicLogs}
+      alignment="left"
+      active={["all"]}
+      select={select}
+      isDrawerOpen={false}
+      closeDrawer={select}
+    />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 });

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { IJSONRPCLog } from "../logsReact/logsReact";
 import * as monaco from "monaco-editor";
 import {
-  Typography, Card, Box, CardHeader, CardContent, ExpansionPanel,
-  ExpansionPanelDetails, ExpansionPanelSummary, Tooltip, IconButton,
+  Typography, Card, Box, CardHeader, CardContent, Accordion,
+  AccordionDetails, AccordionSummary, Tooltip, IconButton,
   Snackbar,
 } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
@@ -14,7 +14,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import "./cardListItem.css";
 import Alert from "../alert/alert";
 import useDarkMode from "use-dark-mode";
-// import copy from "copy-to-clipboard";
+import copy from "copy-to-clipboard";
 
 interface IProps {
   log: IJSONRPCLog;
@@ -103,7 +103,7 @@ const CardListItem: React.FC<IProps> = (props) => {
   const handleCopy = (event, value) => {
     event.stopPropagation();
     setOpen(true);
-    // copy(JSON.stringify(value, null, 4));
+    copy(JSON.stringify(value, null, 4));
   };
 
   const handleClose = () => {
@@ -131,19 +131,19 @@ const CardListItem: React.FC<IProps> = (props) => {
             :
             null
           }
-          <ExpansionPanel
+          <Accordion
             defaultExpanded={props.open}
             TransitionProps={{ mountOnEnter: true, unmountOnExit: true }}
           >
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography>Payload</Typography>
               <Tooltip title="Copy to clipboard">
                 <IconButton style={{ padding: "4px" }} onClick={(event) => handleCopy(event, props.log.payload)}>
                   <AssignmentIcon style={{ fontSize: 14 }} />
                 </IconButton>
               </Tooltip>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
+            </AccordionSummary>
+            <AccordionDetails>
               <MonacoEditor
                 width="350"
                 height="350"
@@ -160,8 +160,8 @@ const CardListItem: React.FC<IProps> = (props) => {
                   readOnly: true,
                 }}
               />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+            </AccordionDetails>
+          </Accordion>
         </CardContent>
       </Card>
     </Box>

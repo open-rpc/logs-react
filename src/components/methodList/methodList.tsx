@@ -169,8 +169,9 @@ const MethodList: React.FC<IProps> = (props) => {
             <FormGroup>
               {methods.map((method) => (
                 <FormControlLabel
-                  control={<Checkbox value={method} key={method.toString()} onChange={handleChecked}
-                    checked={createFilter.includes(method[0])} />}
+                  key={method.join(" ")}
+                  control={<Checkbox value={method} onChange={handleChecked}
+                  checked={createFilter.includes(method[0])} />}
                   label={method.join(" ")}
                 />
               ))}

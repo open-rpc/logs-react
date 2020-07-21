@@ -10,13 +10,5 @@ module.exports = {
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts"
-  ],
-  transformIgnorePatterns: [
-    "node_modules/(?!(monaco-editor)/)",
-    "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-    "^.+\\.module\\.(css|sass|scss)$"
-  ],
-  modulePaths: [
-    "<rootDir>"
-  ],
+  ]
 };
