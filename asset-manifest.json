@@ -1,8 +1,8 @@
 {
   "files": {
     "static/js/0.74ad20d2.chunk.js": "/logs-react/static/js/0.74ad20d2.chunk.js",
-    "main.css": "/logs-react/static/css/main.e883f3b0.chunk.css",
-    "main.js": "/logs-react/static/js/main.763e690d.chunk.js",
+    "main.css": "/logs-react/static/css/main.40a78712.chunk.css",
+    "main.js": "/logs-react/static/js/main.5209758e.chunk.js",
     "runtime-main.js": "/logs-react/static/js/runtime-main.d0509ffc.js",
     "static/css/3.834370c8.chunk.css": "/logs-react/static/css/3.834370c8.chunk.css",
     "static/js/3.c31937dd.chunk.js": "/logs-react/static/js/3.c31937dd.chunk.js",
@@ -70,7 +70,7 @@
     "editor.worker.js": "/logs-react/editor.worker.js",
     "index.html": "/logs-react/index.html",
     "json.worker.js": "/logs-react/json.worker.js",
-    "precache-manifest.27d57f96a8c976838c915e2b986050b9.js": "/logs-react/precache-manifest.27d57f96a8c976838c915e2b986050b9.js",
+    "precache-manifest.b0f9e6cac563889883e05e6bab508b7d.js": "/logs-react/precache-manifest.b0f9e6cac563889883e05e6bab508b7d.js",
     "service-worker.js": "/logs-react/service-worker.js",
     "static/js/3.c31937dd.chunk.js.LICENSE.txt": "/logs-react/static/js/3.c31937dd.chunk.js.LICENSE.txt",
     "static/js/54.80c174ab.chunk.js.LICENSE.txt": "/logs-react/static/js/54.80c174ab.chunk.js.LICENSE.txt"
@@ -79,7 +79,7 @@
     "static/js/runtime-main.d0509ffc.js",
     "static/css/3.834370c8.chunk.css",
     "static/js/3.c31937dd.chunk.js",
-    "static/css/main.e883f3b0.chunk.css",
-    "static/js/main.763e690d.chunk.js"
+    "static/css/main.40a78712.chunk.css",
+    "static/js/main.5209758e.chunk.js"
   ]
 }
