@@ -24,12 +24,11 @@ aliases:
 
 defaults: &defaults
   working_directory: ~/project
-
+  docker:
+    - image: cimg/node:20.12.1
 jobs:
   test:
     <<: *defaults
-    docker:
-      - image: circleci/node:14.17.5
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
@@ -41,8 +40,6 @@ jobs:
 
   build:
     <<: *defaults
-    docker:
-      - image: circleci/node:14.17.5
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
@@ -52,8 +49,6 @@ jobs:
 
   release:
     <<: *defaults
-    docker:
-      - image: circleci/node:14.17.5
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
